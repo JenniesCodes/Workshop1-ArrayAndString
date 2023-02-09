@@ -1,7 +1,9 @@
 package se.lexicon.jennie;
 
+import java.util.Arrays;
+
 public class NameRepository {
-    private static String[] names;
+    private static String[] names = new String[0];
 
     // Returns number of elements in the array
     public static int getSize() {
@@ -21,12 +23,18 @@ public class NameRepository {
 
     // Returns all names in a new array
     public static String[] findAll() {
-        String[] temp = new String[names.length];
+
+        return Arrays.copyOf(names, names.length);
+
+        /*
+       Alt.:
+       String[] temp = new String[names.length];
 
         for(int i = 0; i < (names.length); i++) {
             temp[i] = names[i];
         }
         return temp;
+        */
     }
 
     // Returns name if found and null if not found.
